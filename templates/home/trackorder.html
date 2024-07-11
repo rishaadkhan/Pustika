@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+Track Order
+{% endblock title %}
+{% block body %}
+
+
+<div class="container" style="width:70%; margin-top:10%;" >
+    <div class="text-left my-3" >
+        <h2>Recent Orders</h2>
+        {% for order in orders %}
+        <p>Order id: {{ order.order_id}} Name: {{ order.name}}</p>
+        {% endfor %}
+    </div>
+<div class="text-left my-3" >
+    <h2>Enter Order ID To Track Your Order</h2>
+</div>
+<form action="TrackOrder" method='post'>
+{% csrf_token %}
+            <div class="form">
+                <div class="form-group">
+                    <label for="orderid">Order ID</label>
+                    <input type="text" class="form-control" id="order_id" name="order_id" required>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Track Order</button>
+</form>
+</div>            
+
+{% endblock body %}

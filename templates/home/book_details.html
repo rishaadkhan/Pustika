@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title%}Book details page{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <img src="{{ book.image.url }}" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h1>{{ book.book_name }}</h1>
+            <p>Category: {{ book.category }}</p>
+            <p>Price: ৳{{ book.price }}</p>
+            <p>Seller Name: {{ book.sellername }}</p>
+            <p>Pickup Location: {{ book.pickuplocation }}</p>
+            <span id='divpr{{book.slug}}'><button id='pr{{book.slug}}' price='{{book.price}}'
+                class="btn btn-primary cart"><b>Add To Cart</b></button></span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

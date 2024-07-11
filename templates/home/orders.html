@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+My Orders
+{% endblock title %}
+{% load static %}
+{% load tag_library %}
+{% block body %}
+<div class="container mt-5" style="width:70%;">
+    <h2><span style="border-bottom:1px dashed">This is my orders page</span></h2>
+    <ul>
+        {% for order in orders %}
+            <h6>Order id: {{order.order_id}} </h6>
+          {% for key, value in order.items_json.items %}
+            <li>{{ value.1 }} Quantity:{{value.0}}</li>
+          {% endfor %}
+          <hr>
+        {% endfor %}
+    </ul>
+   
+</div>
+{% endblock body %}

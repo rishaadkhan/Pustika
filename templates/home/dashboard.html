@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+User Dashboard
+{% endblock title %}
+{% load bootstrap4 %}
+{% block body %}
+
+<div class="container mt-4">
+    <h2>User Profile</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          {% bootstrap_field form.full_name %}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          {% bootstrap_field form.address %}
+        </div>
+        <div class="form-group col-md-4">
+          {% bootstrap_field form.address2 %}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          {% bootstrap_field form.city %}
+        </div>
+        <div class="form-group col-md-4">
+          {% bootstrap_field form.state %}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+            {% bootstrap_field form.zip_code %}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          {% bootstrap_field form.phone_number %}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Profile</button>
+    </form>
+  </div>
+{% endblock body %}

@@ -1,0 +1,22 @@
+<form method="post">
+    {% csrf_token %}
+    <label for="amount">Amount:</label>
+    <input type="text" name="amount" id="amount">
+    <button id="sslczPayBtn" token="" postdata="" order="" endpoint="">Pay Now</button>
+</form>
+
+<script src="https://sandbox.sslcommerz.com/embed.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#sslczPayBtn').prop('postdata', {
+            "user_id": "user1",
+            "user_name": "name",
+            "user_email": "email@gmail.com"
+        });
+        $('#sslczPayBtn').prop('order', "your_order_id");
+        $('#sslczPayBtn').prop('endpoint', "your_endpoint_url");
+        $('#sslczPayBtn').on('click', function (event) {
+            sslczPayBtn(event);
+        });
+    });
+</script>
